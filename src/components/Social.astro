@@ -1,7 +1,8 @@
 ---
-const { platform, username } = Astro.props;
+const { url, icon } = Astro.props;
 
-
+//Icons
+import Icon from "./Icon.astro";
 ---
 
-<a href={`https://www.${platform}.com/${username}`}>{platform}</a>
+<a href={`${url}`} target="_blank"><Icon name={icon} /></a>

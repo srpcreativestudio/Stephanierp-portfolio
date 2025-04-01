@@ -1,5 +1,22 @@
 @import "tailwindcss";
+@theme {
+    --color-gold: #CAB071;
+  }
 
+.hamburger .line{
+    @apply block bg-green-600 w-3.5 h-0.5 m-0.5;
+}
 .nav-item:hover {
     @apply text-green-600;
+}
+
+.social svg {
+    @apply w-6;
+}
+.social svg:hover .github {
+    @apply stroke-gold;
+}
+
+.social svg:hover path:not(.github) {
+    @apply fill-gold;
 }

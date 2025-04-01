@@ -1,44 +1,16 @@
 ---
-import './src/styles/global.css'
+import "./src/styles/global.css";
 
- // components 
-import Footer from '../components/Footer.astro';
-import Portfolio from '../components/Portfolio.astro';
-import About from '../components/About.astro';
-import Social from '../components/Social.astro';
-import Navigation from '../components/Navigation.astro';
+// layouts
+import MainLayout from "../layouts/MainLayout.astro";
+// components
+import Portfolio from "../components/Portfolio.astro";
+import About from "../components/About.astro";
+import Hero from "../components/Hero.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Stephanie R Patton</title>
-	</head>
-	<body>
-		<header>
-			<Navigation />
-		</header>
-		<section class="hero">
-			<h1>Hello, I'm Stephanie! <br>
-				Shopify Developer & Digital Growth Strategist</h1>
-				<p>I help elevate your brand to new heights</p>
-				<div class="expertise">
-					<p>Shopify</p>
-					<p>Email Marketing</p>
-					<p>Web Development</p>
-					<p>Automation</p>
-				</div>
-				<Social />
-				<a class="btn px-2 py-2 bg-green-600 text-white" href="#">Let's Chat</a>
-		</section>
-		
-		
-		
-		<Portfolio />
-		<About />
-		<Footer />
-	</body>
-</html>
+<MainLayout title="Homepage">
+  <Hero />
+  <Portfolio />
+  <About />
+</MainLayout>
