@@ -1,13 +1,53 @@
 ---
+import TabMenu from "./TabMenu.astro";
+import TabItem from "./TabItem.astro";
+import Image from "./Image.astro";
 
-
+const tabItems = [
+  { type: "recent", label: "Recent" },
+  { type: "development", label: "Development" },
+  { type: "marketing", label: "Marketing" },
+];
 ---
 
-<section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="portfolio_tabs">
-        <a href="#">Recent</a>
-        <a href="#">Development</a>
-        <a href=#">Marketing</a>
+<section id="portfolio" class="h-screen mt-6">
+  <div class="container">
+    <h2 class="text-center">Portfolio</h2>
+    <div class="portfolio__tabs tabs__container gap-5 flex justify-center">
+      {
+        tabItems.map((item, index) => (
+          <TabMenu type={item.type} label={item.label} active={index === 0} />
+        ))
+      }
     </div>
+    <div class="projects tabitem__container grid grid-cols-3 gap-4 mt-10">
+      <TabItem type="recent">
+        <Image
+          source="https://res.cloudinary.com/srp-creative/image/upload/v1743550187/project-international-rural-school_w5c1jn.png"
+          altText="Project 1"
+          class="w-full h-auto"
+        />
+        <h5>International Rural School Report</h5>
+        <p>Project description goes here.</p>
+        <div class="projects__tech">Icons</div>
+        <div class="buttons">
+          <a class="btn" href="#">See Live Project</a>
+          <a class="btn" href="#">See Github Code</a>
+        </div>
+      </TabItem>
+      <TabItem type="recent">
+        <p>Recent Project 2</p>
+      </TabItem>
+      <TabItem type="development">
+        <p>Development Projects</p>
+      </TabItem>
+      <TabItem type="marketing">
+        <p>Marketing Projects</p>
+      </TabItem>
+    </div>
+  </div>
+
+  <script>
+    import "../scripts/tabs.js";
+  </script>
 </section>

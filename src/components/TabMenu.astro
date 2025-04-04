@@ -1,0 +1,7 @@
+---
+const { type, label, active = false } = Astro.props;
+---
+
+<a href="" class={`tab__button ${active ? "active" : ""}`} data-target={type}
+  >{label}</a
+>

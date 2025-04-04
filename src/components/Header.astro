@@ -11,23 +11,23 @@ const navItems = [
 ---
 
 <header class="relative">
-  <nav class="fixed right-0 z-50 w-full p-4">
+  <nav class="fixed right-0 z-50 w-full p-4 border-b">
     <div class="mobile__nav--icons">
-      <div class="hamburger flex flex-col flex-wrap content-end lg:hidden">
+      <div class="hamburger flex flex-col items-end lg:hidden">
         <Icon name="menu" />
       </div>
-      <div class="close flex flex-col flex-wrap content-end hidden">
+      <div class="close flex flex-col items-end hidden">
         <Icon name="close" />
       </div>
     </div>
     <div
-      class="desktop__nav container hidden lg:flex lg:flex-row lg:justify-end lg:gap-4"
+      class="desktop__nav container mx-auto px-4 hidden lg:flex lg:flex-row lg:justify-end lg:gap-4"
     >
       {navItems.map((item) => <NavItem href={item.href} label={item.label} />)}
     </div>
 
     <div
-      class="mobile__nav container hidden flex flex-col flex-wrap justify-center content-center"
+      class="mobile__nav container hidden flex flex-col justify-center items-center"
     >
       {navItems.map((item) => <NavItem href={item.href} label={item.label} />)}
     </div>

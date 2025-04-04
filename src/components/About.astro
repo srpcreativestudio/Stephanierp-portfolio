@@ -1,9 +1,31 @@
 ---
-
-
+import Image from "./Image.astro";
 ---
 
 <section id="about">
-    <h2>About Me</h2>
-    <p>I am a web developer that focuses on how to use marketing to grow brands. I understand the importance of not only getting the technical side of a project working, but also making sure that all the marketing channels work together to help your audience move smoothly through your funnel. I enjoy reading, traveling and learning new things that help me to better assist others.</p>
+  <div class="container">
+    <h2 class="text-center">Your Reliable Digital Growth Partner</h2>
+    <div class="h-full grid grid-cols-2">
+      <div class="image">
+        <Image
+          source="https://res.cloudinary.com/srp-creative/image/upload/v1743549637/social_image_headshot-custom_xcxyox.jpg"
+          altText="Woman smiling wearing white shirt"
+        />
+      </div>
+      <div class="content">
+        <p>
+          I am a web developer that focuses on how to use marketing to grow
+          brands. I understand the importance of not only getting the technical
+          side of a project working, but also making sure that all the marketing
+          channels work together to help your audience move smoothly through
+          your funnel. I enjoy reading, traveling and learning new things that
+          help me to better assist others.
+        </p>
+        <a href="#" class="btn primary open-modal">Let's Connect</a>
+      </div>
+    </div>
+  </div>
 </section>
+<script>
+  import "../scripts/modal.js";
+</script>

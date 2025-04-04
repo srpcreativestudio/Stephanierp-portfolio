@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import lottie from "astro-integration-lottie";
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -7,5 +8,8 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+  integrations: [
+    lottie(),
+  ]
 });

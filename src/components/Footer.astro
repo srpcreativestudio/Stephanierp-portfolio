@@ -1,5 +1,20 @@
 ---
+import NavItem from "./NavItem.astro";
 
+const navItems = [
+  { href: "#portfolio", label: "Portfolio" },
+  { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
+];
 ---
 
-<footer>Footer</footer>
+<footer>
+  <div class="footer__content">
+    <div class="footer__content--nav">
+      {navItems.map((item) => <NavItem href={item.href} label={item.label} />)}
+    </div>
+    <div class="footer__content--copyright">
+      Copyright | Designed and Coded by Stephanie R Patton
+    </div>
+  </div>
+</footer>

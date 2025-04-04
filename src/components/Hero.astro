@@ -1,6 +1,9 @@
 ---
+import LottieAnimation from "astro-integration-lottie/Lottie.astro";
+
 // components
 import Social from "../components/Social.astro";
+import Icon from "./Icon.astro";
 
 const socialMedia = [
   {
@@ -18,26 +21,68 @@ const socialMedia = [
 ];
 ---
 
-<section class="hero h-screen pt-24 grid">
-  <div class="container">
-    <h1>
-      Hello, I'm Stephanie! <br />
-      Shopify Developer & Digital Growth Strategist
-    </h1>
-    <p>I help elevate your brand to new heights</p>
-    <div class="expertise">
-      <p>Shopify</p>
-      <p>Email Marketing</p>
-      <p>Web Development</p>
-      <p>Automation</p>
+<section class="hero h-screen">
+  <div
+    class="container pt-24 flex justify-center items-center flex-col-reverse lg:grid lg:grid-cols-2"
+  >
+    <div class="w-full flex lg:justify-center">
+      <LottieAnimation
+        src="https://res.cloudinary.com/srp-creative/raw/upload/v1743528422/hero-image_pqmoot.json"
+        autoplay="visible"
+        class="w-6/12 mt-2 lg:w-full"
+      />
     </div>
-    <div class="social flex gap-1.5 content-center">
-      {
-        socialMedia.map((social) => (
-          <Social icon={social.icon} url={social.url} />
-        ))
-      }
+    <div class="flex flex-col justify-center">
+      <h1 class="pb-1">
+        <span class="text-gray-500 text-2xl pb-1 block"
+          >Hello, I'm Stephanie!</span
+        >
+        Shopify Developer & Digital&nbsp;Growth&nbsp;Strategist
+      </h1>
+      <p class="mt-1">
+        I help elevate your brand to new heights by utilizing the latest tech.
+      </p>
+      <div
+        class="expertise bg-black text-white w-4/5 rounded-xl py-3 px-2 my-2"
+      >
+        <p
+          class="w-fit mb-1 border-white border-solid border-t-0 border-l-0 border-r-0 border-2"
+        >
+          Expertise
+        </p>
+        <div class="lg:flex gap-6">
+          <p
+            class="relative after:absolute after:bg-white after:w-2 after:h-2 after:rounded-full after:-right-4 after:top-2"
+          >
+            Shopify Expert
+          </p>
+          <p
+            class="relative after:absolute after:bg-white after:w-2 after:h-2 after:rounded-full after:-right-4 after:top-2"
+          >
+            Lead Nurturing
+          </p>
+          <p>Automation</p>
+        </div>
+      </div>
+      <div class="social my-1 flex gap-3 content-center">
+        {
+          socialMedia.map((social) => (
+            <Social icon={social.icon} url={social.url} />
+          ))
+        }
+      </div>
+      <a
+        class="btn primary open-modal px-2 py-2 bg-green text-white rounded-lg hover:bg-opacity-70 text-lg"
+        href="#">Let's Chat</a
+      >
     </div>
-    <a class="btn px-2 py-2 bg-green-600 text-white" href="#">Let's Chat</a>
+  </div>
+
+  <div class="arrow flex justify-center">
+    <a href="#portfolio"><Icon name="downArrow" class="down-arrow" /></a>
   </div>
 </section>
+
+<script>
+  import "../scripts/modal.js";
+</script>

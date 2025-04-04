@@ -1,22 +1,98 @@
 @import "tailwindcss";
 @theme {
     --color-gold: #CAB071;
+    --color-green: #037456;
+    --color-modal-bg: rgba(0, 0, 0, 0.8);
   }
 
-.hamburger .line{
-    @apply block bg-green-600 w-3.5 h-0.5 m-0.5;
+body,
+html {
+    @apply overflow-x-hidden 
+}
+body {
+    @apply relative;
+}
+h1 {
+    @apply text-2xl lg:text-5xl; 
+}
+
+h2 {
+    @apply text-xl mb-3 lg:text-4xl; 
+}
+.container {
+    @apply mx-auto px-4
+}
+.btn {
+    @apply w-fit;
+    &.primary {
+        @apply bg-green text-white py-2 px-2 rounded-lg;
+    }
+}
+
+.hamburger {
+    .line{
+        @apply block bg-green-600 w-3.5 h-0.5 m-0.5;
+    }
 }
 .nav-item:hover {
     @apply text-green-600;
 }
 
-.social svg {
-    @apply w-6;
-}
-.social svg:hover .github {
-    @apply stroke-gold;
+.social {
+    & svg {
+        @apply w-6;
+
+        &:hover {
+            .github {
+                @apply stroke-gold;
+            }
+            path:not(.github) {
+                @apply fill-gold;
+            }
+        }
+    }
 }
 
-.social svg:hover path:not(.github) {
-    @apply fill-gold;
+.arrow svg{
+    @apply w-6;
+}
+
+
+.close svg,
+.hamburger svg,
+.arrow svg {
+    @apply hover:cursor-pointer
+}
+.close svg,
+.hamburger svg,
+.modal-content svg {
+    @apply w-5 h-5;
+}
+
+.modal {
+    &.closed {
+        @apply hidden;
+    }
+
+    &.open {
+        @apply flex;
+    }
+    .modal-content {
+        svg {
+            @apply absolute top-0 right-0;
+        }
+    }
+}
+
+.tab__button {
+        @apply text-center text-lg py-2 px-4 rounded-lg hover:text-gold;
+        &.active {
+            @apply bg-green text-white;
+        }
+}
+
+.tab__item {
+    &.active {
+        @apply block;
+    }
 }
