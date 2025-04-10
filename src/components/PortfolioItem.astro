@@ -1,0 +1,77 @@
+---
+import TabItem from "../components/TabItem.astro";
+import Image from "../components/Image.astro";
+import Icon from "../components/Icon.astro";
+import HTML from "../components/Icon/HTML.astro";
+import CSS from "../components/Icon/CSS.astro";
+import Javascript from "../components/Icon/Javascript.astro";
+import React from "../components/Icon/React.astro";
+import Liquid from "../components/Icon/Liquid.astro";
+import AstroJS from "../components/Icon/Astro.astro";
+import Tailwind from "../components/Icon/Tailwind.astro";
+
+const {
+  title,
+  description,
+  image,
+  type,
+  icons = [],
+  altText,
+  liveLink,
+  githubLink,
+  class: customClass,
+} = Astro.props;
+
+const iconMap = {
+  html: HTML,
+  css: CSS,
+  javascript: Javascript,
+  react: React,
+  liquid: Liquid,
+  tailwind: Tailwind,
+  astro: AstroJS,
+};
+---
+
+<TabItem type={type} class={`flex-col items-center`}>
+  <div class="image-wrapper">
+    <Image
+      source={image}
+      altText={altText}
+      class="h-full w-full object-cover"
+    />
+  </div>
+
+  <div
+    class="tab__content text-center flex flex-col flex-grow-1 max-w-image500"
+  >
+    <h3 class="text-center my-5">{title}</h3>
+    <p class="text-center">
+      {description}
+    </p>
+    {
+      icons && (
+        <div class="flex justify-center gap-2 my-5">
+          {icons.map((icon) => {
+            const IconComponent = iconMap[icon];
+            return IconComponent ? (
+              <IconComponent name={icon} class="h-6 w-6 object-cover" />
+            ) : null;
+          })}
+        </div>
+      )
+    }
+    <div class="buttons mt-auto">
+      <a class="btn secondary" href={liveLink} target="_blank"
+        >See Live Project</a
+      >
+      {
+        githubLink && (
+          <a class="btn secondary" href={githubLink} target="_blank">
+            See Github Code
+          </a>
+        )
+      }
+    </div>
+  </div>
+</TabItem>

@@ -1,5 +1,6 @@
 ---
 import NavItem from "./NavItem.astro";
+import Icon from "./Icon.astro";
 
 const navItems = [
   { href: "#portfolio", label: "Portfolio" },
@@ -8,10 +9,23 @@ const navItems = [
 ];
 ---
 
-<footer>
-  <div class="footer__content">
-    <div class="footer__content--nav">
-      {navItems.map((item) => <NavItem href={item.href} label={item.label} />)}
+<footer class="relative">
+  <div
+    class="to-top absolute -top-16 right-4 hover:-translate-y-2 transition-transform duration-300 ease-in-out"
+  >
+    <a href="#home"><Icon name="chevronUp" /></a>
+  </div>
+  <div class="footer__content bg-black text-white p-4">
+    <div class="footer__nav">
+      {
+        navItems.map((item, index) => (
+          <NavItem
+            href={item.href}
+            label={item.label}
+            class={index === navItems.length - 1 ? "open-modal" : ""}
+          />
+        ))
+      }
     </div>
     <div class="footer__content--copyright">
       Copyright | Designed and Coded by Stephanie R Patton

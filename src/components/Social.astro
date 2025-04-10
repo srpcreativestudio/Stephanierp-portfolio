@@ -1,8 +1,8 @@
 ---
-const { url, icon } = Astro.props;
+const { url, icon, class: customClass = "" } = Astro.props;
 
 //Icons
 import Icon from "./Icon.astro";
 ---
 
-<a href={`${url}`} target="_blank"><Icon name={icon} /></a>
+<a href={`${url}`} target="_blank" class={customClass}><Icon name={icon} /></a>

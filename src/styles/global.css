@@ -1,31 +1,60 @@
 @import "tailwindcss";
 @theme {
-    --color-gold: #CAB071;
+    --font-rubik: 'Rubik Variable', sans-serif;
     --color-green: #037456;
+    --color-gray: #4D4D4D;
     --color-modal-bg: rgba(0, 0, 0, 0.8);
+    --spacing-image300: 300px;
+    --spacing-image500: 500px;
   }
 
 body,
 html {
-    @apply overflow-x-hidden 
+    @apply overflow-x-hidden font-rubik; 
 }
 body {
     @apply relative;
+    &.no-scroll {
+        @apply overflow-hidden h-full fixed w-full top-0 left-0;
+    }
 }
 h1 {
-    @apply text-2xl lg:text-5xl; 
+    @apply text-2xl lg:text-5xl font-extrabold; 
 }
 
 h2 {
-    @apply text-xl mb-3 lg:text-4xl; 
+    @apply text-xl mb-3 lg:text-3xl font-extrabold text-white bg-black py-4; 
+    &.modal-title {
+        @apply bg-white text-black;
+    }
+}
+h3 {
+    @apply text-lg mb-3 lg:text-2xl font-semibold; 
+}
+
+p {
+    @apply text-base font-normal;
+}
+
+.subhead {
+    @apply font-light italic block text-gray text-base lg:text-lg;
 }
 .container {
-    @apply mx-auto px-4
+    @apply mx-auto px-10;
+}
+.container-xl {
+    @apply mx-auto px-16;
 }
 .btn {
-    @apply w-fit;
+    @apply w-fit font-semibold;
     &.primary {
         @apply bg-green text-white py-2 px-2 rounded-lg;
+    }
+    &.secondary {
+        @apply text-green py-2 px-2 border-b-2;
+        &:hover {
+            @apply border-white;
+        }
     }
 }
 
@@ -34,20 +63,30 @@ h2 {
         @apply block bg-green-600 w-3.5 h-0.5 m-0.5;
     }
 }
-.nav-item:hover {
-    @apply text-green-600;
+.nav-item {
+    @apply pb-1 relative;
+    &.active {
+        @apply text-green-600;
+    }
+    &::after {
+        @apply  left-0 right-0 bottom-0 w-full h-0.5 bg-white;
+        content: '';
+        transition: transform 0.3s ease-in-out;
+    }
+    &:hover {
+        &::after {
+            @apply absolute;
+        }
+    }
 }
 
 .social {
     & svg {
-        @apply w-6;
+        @apply w-4 h-4 lg:w-5 lg:h-5;
 
         &:hover {
-            .github {
-                @apply stroke-gold;
-            }
-            path:not(.github) {
-                @apply fill-gold;
+            path {
+                @apply fill-green;
             }
         }
     }
@@ -85,14 +124,29 @@ h2 {
 }
 
 .tab__button {
-        @apply text-center text-lg py-2 px-4 rounded-lg hover:text-gold;
+        @apply text-center font-bold text-lg py-2 px-4 rounded-lg;
         &.active {
             @apply bg-green text-white;
+        }
+        &:hover:not(.active) {
+            @apply text-green;
+        }
+        a {
+            @apply font-bold;
         }
 }
 
 .tab__item {
+    @apply transform transition-all duration-300 ease-in-out;
     &.active {
-        @apply block;
+        @apply flex;
+
+        &.fallback {
+            @apply block;
+        }
     }
+}
+
+.image-wrapper {
+    @apply w-full w-full max-w-image500 overflow-hidden;
 }

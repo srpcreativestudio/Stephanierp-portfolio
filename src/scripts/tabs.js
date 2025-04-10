@@ -3,22 +3,31 @@ document.addEventListener("DOMContentLoaded" , () => {
     const tabItemContainer = document.querySelector('.tabitem__container')
     const tabButtons = tabContainer.querySelectorAll('.tab__button')
     const tabItems = tabItemContainer.querySelectorAll('.tab__item')
+    const fallbackTab = tabItemContainer.querySelector('.tab__item.fallback')
 
     function updateActiveTab() {
+        let foundActive = false;
         // Remove 'active' class from all tabItems
         tabItems.forEach(items => items.classList.remove('active'));
     
         // Find the active tab button
         const activeButton = tabContainer.querySelector('.tab__button.active');
-        console.log(activeButton);
         if (activeButton) {
           const target = activeButton.getAttribute('data-target');
           // Add 'active' class to the corresponding tabItems
           tabItems.forEach(item => {
             if (item.getAttribute('data-target') === target) {
               item.classList.add('active');
+              foundActive = true;
             }
           });
+
+            // If no matching tabItem is found, show the fallback tabItem
+            if (!foundActive && fallbackTab) {
+              fallbackTab.classList.add('active');
+            } else if (fallbackTab) {
+              fallbackTab.classList.remove('active');
+            }
         }
       }
 

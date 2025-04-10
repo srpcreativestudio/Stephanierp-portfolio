@@ -2,84 +2,88 @@
 import LottieAnimation from "astro-integration-lottie/Lottie.astro";
 
 // components
-import Social from "../components/Social.astro";
 import Icon from "./Icon.astro";
-
-const socialMedia = [
+import Image from "./Image.astro";
+// data
+const expertise = [
   {
-    url: "https://github.com/StephanieRPatton",
-    icon: "github",
+    label: "Shopify Development",
+    icon: "code",
   },
   {
-    url: "https://www.linkedin.com/in/stephanierpatton/",
-    icon: "linkedin",
+    label: "Email Marketing",
+    icon: "email",
   },
   {
-    url: "https://www.instagram.com/stephanierpatton/",
-    icon: "instagram",
+    label: "Automation",
+    icon: "automation",
   },
 ];
 ---
 
-<section class="hero h-screen">
-  <div
-    class="container pt-24 flex justify-center items-center flex-col-reverse lg:grid lg:grid-cols-2"
-  >
-    <div class="w-full flex lg:justify-center">
-      <LottieAnimation
-        src="https://res.cloudinary.com/srp-creative/raw/upload/v1743528422/hero-image_pqmoot.json"
-        autoplay="visible"
-        class="w-6/12 mt-2 lg:w-full"
-      />
-    </div>
-    <div class="flex flex-col justify-center">
-      <h1 class="pb-1">
-        <span class="text-gray-500 text-2xl pb-1 block"
-          >Hello, I'm Stephanie!</span
-        >
-        Shopify Developer & Digital&nbsp;Growth&nbsp;Strategist
+<section
+  id="home"
+  class="hero container my-40 lg:mt-32 lg:container-xl lg:min-h-screen"
+>
+  <div class="wrapper lg:w-11/12 mx-auto">
+    <div class="flex flex-col justify-center items-center relative z-10">
+      <span class="subhead mb-1 text-center">Hello, I'm Stephanie!</span>
+      <div
+        class="image-switch w-36 rounded-full border-6 border-solid border-black bg-green overflow-hidden mb-3 mx-auto lg:mb-0 lg:hidden"
+      >
+        <Image
+          source="https://res.cloudinary.com/srp-creative/image/upload/v1744241183/avatar-stephanie_txccer.png"
+          altText="Carton version of woman smiling"
+        />
+      </div>
+      <h1 class="text-center">
+        Shopify Developer & Email&nbsp;Marketing&nbsp;Strategist
       </h1>
-      <p class="mt-1">
+      <p class="my-3 text-center">
         I help elevate your brand to new heights by utilizing the latest tech.
       </p>
-      <div
-        class="expertise bg-black text-white w-4/5 rounded-xl py-3 px-2 my-2"
-      >
-        <p
-          class="w-fit mb-1 border-white border-solid border-t-0 border-l-0 border-r-0 border-2"
-        >
-          Expertise
-        </p>
-        <div class="lg:flex gap-6">
-          <p
-            class="relative after:absolute after:bg-white after:w-2 after:h-2 after:rounded-full after:-right-4 after:top-2"
-          >
-            Shopify Expert
-          </p>
-          <p
-            class="relative after:absolute after:bg-white after:w-2 after:h-2 after:rounded-full after:-right-4 after:top-2"
-          >
-            Lead Nurturing
-          </p>
-          <p>Automation</p>
-        </div>
-      </div>
-      <div class="social my-1 flex gap-3 content-center">
-        {
-          socialMedia.map((social) => (
-            <Social icon={social.icon} url={social.url} />
-          ))
-        }
-      </div>
       <a
         class="btn primary open-modal px-2 py-2 bg-green text-white rounded-lg hover:bg-opacity-70 text-lg"
         href="#">Let's Chat</a
       >
     </div>
-  </div>
+    <div class="lg:-mt-20 flex justify-center items-center lg:min-h-image500">
+      <div class="hidden lg:w-6/12 lg:flex lg:justify-center">
+        <LottieAnimation
+          src="https://res.cloudinary.com/srp-creative/raw/upload/v1743528422/hero-image_pqmoot.json"
+          autoplay="visible"
+          class="w-full"
+        />
+      </div>
+    </div>
+    <div
+      class="expertise bg-black text-white rounded-xl py-3 px-2 my-3 lg:-mt-16 relative"
+    >
+      <p
+        class="w-fit mx-auto mb-1 border-0 border-white border-solid border-b-2"
+      >
+        Expertise
+      </p>
+      <div
+        class="grid justify-between items-center gap-6 grid-cols-1 sm:grid-cols-3"
+      >
+        {
+          expertise.map((item) => (
+            <div class="flex flex-col gap-2 items-center my-2">
+              <Icon name={item.icon} />
+              <p class="italic">{item.label}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
 
-  <div class="arrow flex justify-center">
-    <a href="#portfolio"><Icon name="downArrow" class="down-arrow" /></a>
+    <div class="arrow flex flex-col justify-center items-center my-10">
+      <p class="text-xs">View Projects</p>
+      <a href="#portfolio" class="animate-bounceUpDown"
+        ><Icon name="chevronDown" class="down-arrow" /></a
+      >
+    </div>
   </div>
 </section>
 

@@ -2,48 +2,49 @@
 import TabMenu from "./TabMenu.astro";
 import TabItem from "./TabItem.astro";
 import Image from "./Image.astro";
+import PortfolioItem from "./PortfolioItem.astro";
+import { getCollection } from "astro:content";
+const projects = await getCollection("projects");
 
+console.log(projects);
 const tabItems = [
-  { type: "recent", label: "Recent" },
-  { type: "development", label: "Development" },
+  { type: "development", label: "Web Development" },
   { type: "marketing", label: "Marketing" },
 ];
 ---
 
-<section id="portfolio" class="h-screen mt-6">
-  <div class="container">
+<section id="portfolio" class="mt-6 min-h-screen">
+  <div class="wrapper">
     <h2 class="text-center">Portfolio</h2>
-    <div class="portfolio__tabs tabs__container gap-5 flex justify-center">
-      {
-        tabItems.map((item, index) => (
-          <TabMenu type={item.type} label={item.label} active={index === 0} />
-        ))
-      }
-    </div>
-    <div class="projects tabitem__container grid grid-cols-3 gap-4 mt-10">
-      <TabItem type="recent">
-        <Image
-          source="https://res.cloudinary.com/srp-creative/image/upload/v1743550187/project-international-rural-school_w5c1jn.png"
-          altText="Project 1"
-          class="w-full h-auto"
-        />
-        <h5>International Rural School Report</h5>
-        <p>Project description goes here.</p>
-        <div class="projects__tech">Icons</div>
-        <div class="buttons">
-          <a class="btn" href="#">See Live Project</a>
-          <a class="btn" href="#">See Github Code</a>
-        </div>
-      </TabItem>
-      <TabItem type="recent">
-        <p>Recent Project 2</p>
-      </TabItem>
-      <TabItem type="development">
-        <p>Development Projects</p>
-      </TabItem>
-      <TabItem type="marketing">
-        <p>Marketing Projects</p>
-      </TabItem>
+    <div class="container my-20">
+      <div class="portfolio__tabs tabs__container gap-5 flex justify-center">
+        {
+          tabItems.map((item, index) => (
+            <TabMenu type={item.type} label={item.label} active={index === 0} />
+          ))
+        }
+      </div>
+      <div
+        class="projects tabitem__container grid justify-center gap-6 grid-cols-[repeat(auto-fit,minmax(300px,max-content))] mt-10"
+      >
+        {
+          projects.map((project) => (
+            <PortfolioItem
+              title={project.data.title}
+              description={project.data.description}
+              image={project.data.image}
+              type={project.data.type}
+              icons={project.data.icons}
+              altText={project.data.altText}
+              liveLink={project.data.liveLink}
+              githubLink={project.data.githubLink}
+            />
+          ))
+        }
+        <TabItem type="fallback" class={"fallback"}>
+          <h3 class="text-center">Coming Soon</h3>
+        </TabItem>
+      </div>
     </div>
   </div>
 
