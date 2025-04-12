@@ -2,11 +2,8 @@
 import NavItem from "./NavItem.astro";
 import Icon from "./Icon.astro";
 
-const navItems = [
-  { href: "#portfolio", label: "Portfolio" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
-];
+// data
+import Navigation from "./Navigation.astro";
 ---
 
 <footer class="relative">
@@ -15,19 +12,11 @@ const navItems = [
   >
     <a href="#home"><Icon name="chevronUp" /></a>
   </div>
-  <div class="footer__content bg-black text-white p-4">
-    <div class="footer__nav">
-      {
-        navItems.map((item, index) => (
-          <NavItem
-            href={item.href}
-            label={item.label}
-            class={index === navItems.length - 1 ? "open-modal" : ""}
-          />
-        ))
-      }
-    </div>
-    <div class="footer__content--copyright">
+  <div class="footer__content bg-black text-white p-10 text-center">
+    <Navigation
+      class="footer__nav gap-4 flex flex-col justify-center lg:flex-row"
+    />
+    <div class="footer__content--copyright mt-4">
       Copyright | Designed and Coded by Stephanie R Patton
     </div>
   </div>

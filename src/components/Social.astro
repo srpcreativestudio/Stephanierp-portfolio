@@ -1,8 +1,26 @@
 ---
-const { url, icon, class: customClass = "" } = Astro.props;
+import { socialMedia } from "../data/socialMedia";
+const { class: customClass = "" } = Astro.props;
+
+interface Props {
+  class?: string;
+}
 
 //Icons
 import Icon from "./Icon.astro";
 ---
 
-<a href={`${url}`} target="_blank" class={customClass}><Icon name={icon} /></a>
+<div class={`social flex ${customClass}`}>
+  {
+    socialMedia.map((social) => (
+      <a
+        href={social.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social__icon"
+      >
+        <Icon name={social.icon} />
+      </a>
+    ))
+  }
+</div>

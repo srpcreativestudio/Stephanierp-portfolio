@@ -61,14 +61,14 @@ const iconMap = {
         </div>
       )
     }
-    <div class="buttons mt-auto">
-      <a class="btn secondary" href={liveLink} target="_blank"
-        >See Live Project</a
-      >
+    <div
+      class="buttons mt-auto flex gap-6 justify-center items-center flex-col sm:flex-row"
+    >
+      <a class="btn secondary" href={liveLink} target="_blank">View Project</a>
       {
         githubLink && (
           <a class="btn secondary" href={githubLink} target="_blank">
-            See Github Code
+            View Github Code
           </a>
         )
       }

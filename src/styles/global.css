@@ -28,7 +28,7 @@ h2 {
         @apply bg-white text-black;
     }
 }
-h3 {
+h3,.h3 {
     @apply text-lg mb-3 lg:text-2xl font-semibold; 
 }
 
@@ -46,7 +46,7 @@ p {
     @apply mx-auto px-16;
 }
 .btn {
-    @apply w-fit font-semibold;
+    @apply w-fit font-semibold inline-block;
     &.primary {
         @apply bg-green text-white py-2 px-2 rounded-lg;
     }
@@ -105,7 +105,7 @@ p {
 .close svg,
 .hamburger svg,
 .modal-content svg {
-    @apply w-5 h-5;
+    @apply w-7 h-7;
 }
 
 .modal {
@@ -122,6 +122,8 @@ p {
         }
     }
 }
+
+
 
 .tab__button {
         @apply text-center font-bold text-lg py-2 px-4 rounded-lg;

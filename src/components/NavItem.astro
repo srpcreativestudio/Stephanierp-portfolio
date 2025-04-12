@@ -1,5 +1,19 @@
 ---
-const { href, label, class: customClass = "" } = Astro.props;
+interface Props {
+  href: string;
+  label: string;
+  class?: string;
+  modalType?: string;
+}
+
+const { href, label, class: className, modalType } = Astro.props;
 ---
 
-<a class={`nav-item ${customClass}`} href={href}>{label}</a>
+<a
+  href={href}
+  class={className}
+  data-modal-trigger={modalType}
+  aria-role={modalType ? "button" : undefined}
+>
+  {label}
+</a>

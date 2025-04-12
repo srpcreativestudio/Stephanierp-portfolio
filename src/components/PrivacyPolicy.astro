@@ -1,0 +1,13 @@
+---
+import Modal from "./Modal.astro";
+//content
+import { getCollection } from "astro:content";
+const legalContent = await getCollection("legal");
+console.log("Legal docs:", legalContent);
+---
+
+<Modal title="Privacy Policy" modalType="privacy" isOpen={false}>
+  <div class="my-6 text-center">
+    {legalContent.length > 0 && <Fragment set:html={legalContent[0].body} />}
+  </div>
+</Modal>
