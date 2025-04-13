@@ -1,10 +1,7 @@
 ---
-const { type, active = false, class: customClass = "" } = Astro.props;
+const { type, label, active = false } = Astro.props;
 ---
 
-<div
-  class={`tab__item hidden ${active ? "active" : ""}${customClass}`}
-  data-target={type}
+<a href="" class={`tab__button ${active ? "active" : ""}`} data-target={type}
+  >{label}</a
 >
-  <slot />
-</div>

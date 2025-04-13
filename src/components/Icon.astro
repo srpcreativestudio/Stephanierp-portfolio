@@ -1,47 +1,18 @@
 ---
-import Github from "./Icon/Github.astro";
-import Instagram from "./Icon/Instagram.astro";
-import Linkedin from "./Icon/Linkedin.astro";
-import MobileMenu from "./Icon/MobileMenu.astro";
-import Close from "./Icon/Close.astro";
-import ChevronDown from "./Icon/ChevronDown.astro";
-import ChevronUp from "./Icon/ChevronUp.astro";
-import Twitter from "./Icon/Twitter.astro";
-import HTML from "./Icon/HTML.astro";
-import CSS from "../components/Icon/CSS.astro";
-import Javascript from "../components/Icon/Javascript.astro";
-import React from "../components/Icon/React.astro";
-import Liquid from "../components/Icon/Liquid.astro";
-import AstroJS from "../components/Icon/Astro.astro";
-import Tailwind from "../components/Icon/Tailwind.astro";
-import Code from "../components/Icon/Code.astro";
-import Email from "../components/Icon/Email.astro";
-import Automation from "../components/Icon/Automation.astro";
+interface Props {
+  name: string;
+  class?: string;
+}
+import { iconMap } from "../data/icons.js";
 
-const { class: customClass } = Astro.props;
-
-const iconMap = {
-  github: Github,
-  instagram: Instagram,
-  linkedin: Linkedin,
-  menu: MobileMenu,
-  close: Close,
-  chevronDown: ChevronDown,
-  chevronUp: ChevronUp,
-  twitter: Twitter,
-  html: HTML,
-  css: CSS,
-  javascript: Javascript,
-  react: React,
-  liquid: Liquid,
-  astro: AstroJS,
-  tailwind: Tailwind,
-  code: Code,
-  email: Email,
-  automation: Automation,
-};
-
-const IconComponent = iconMap[Astro.props.name];
+const { name, class: customClass = "" } = Astro.props;
+const IconComponent = iconMap[name];
 ---
 
-<IconComponent class={`${customClass}`} />
+{
+  IconComponent ? (
+    <IconComponent class={`icon fill-current ${customClass}`} />
+  ) : (
+    <div class="missing-icon">Icon {name} not found</div>
+  )
+}

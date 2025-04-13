@@ -4,6 +4,7 @@ import LottieAnimation from "astro-integration-lottie/Lottie.astro";
 // components
 import Icon from "./Icon.astro";
 import Image from "./Image.astro";
+import Button from "./Button.astro";
 // data
 const expertise = [
   {
@@ -42,11 +43,18 @@ const expertise = [
       <p class="my-3 text-center">
         I help elevate your brand to new heights by utilizing the latest tech.
       </p>
-      <a
+      <!-- <a
         class="btn primary open-modal px-2 py-2 bg-green text-white rounded-lg hover:bg-opacity-70 text-lg"
         href="#"
         data-modal-trigger="contact">Let's Chat</a
-      >
+      > -->
+      <Button
+        class=""
+        href="#"
+        type="primary"
+        modalTrigger="contact"
+        text="Let's Chat"
+      />
     </div>
     <div class="lg:-mt-20 flex justify-center items-center lg:min-h-image500">
       <div class="hidden lg:w-6/12 lg:flex lg:justify-center">

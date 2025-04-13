@@ -2,6 +2,7 @@
 // components
 import Image from "./Image.astro";
 import Social from "./Social.astro";
+import Button from "./Button.astro";
 //content
 import { getCollection } from "astro:content";
 const [aboutContent] = await getCollection("about");
@@ -9,10 +10,12 @@ const [aboutContent] = await getCollection("about");
 
 <section id="about" class="mt-6">
   <div class="wrapper">
-    <h2 class="text-center">{aboutContent.data.header}</h2>
+    <h2 class="text-center section-title">{aboutContent.data.header}</h2>
     <div class="container-xl mt-20">
       <div class="grid mb-8 lg:mb-0 lg:grid-cols-2">
-        <div class="image border-b-1 lg:border-b-0">
+        <div
+          class="image border-b-1 mx-auto max-w-image300 lg:max-w-full lg:border-b-0"
+        >
           <Image
             source="https://res.cloudinary.com/srp-creative/image/upload/v1744049504/stephanie-about_qn99dq.png"
             altText="Woman smiling wearing white shirt"
@@ -21,14 +24,16 @@ const [aboutContent] = await getCollection("about");
         <div
           class="content flex flex-col items-center mx-auto max-w-image500 lg:justify-center"
         >
-          <h3 class="mt-4 lg:mt-0">{aboutContent.data.title}</h3>
+          <h3 class="mt-4 text-center lg:mt-0">{aboutContent.data.title}</h3>
           <Social class="gap-2 mb-4" />
-          <div class="my-6 text-center" set:html={aboutContent.body} />
-          <a
+          <div class="my-4 text-center" set:html={aboutContent.body} />
+          <Button
+            class=""
             href="#"
-            class="btn primary open-modal"
-            data-modal-trigger="contact">Let's Connect</a
-          >
+            type="primary"
+            modalTrigger="contact"
+            text="Let's Connect"
+          />
         </div>
       </div>
     </div>

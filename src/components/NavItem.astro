@@ -9,11 +9,13 @@ interface Props {
 const { href, label, class: className, modalType } = Astro.props;
 ---
 
-<a
-  href={href}
-  class={className}
-  data-modal-trigger={modalType}
-  aria-role={modalType ? "button" : undefined}
->
-  {label}
-</a>
+<li class="nav-item">
+  <a
+    href={href}
+    class={`nav-item--link ${className ?? ""}`}
+    data-modal-trigger={modalType}
+    aria-role={modalType ? "button" : undefined}
+  >
+    {label}
+  </a>
+</li>

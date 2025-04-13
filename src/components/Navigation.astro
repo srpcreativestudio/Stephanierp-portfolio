@@ -1,26 +1,34 @@
 ---
 import NavItem from "./NavItem.astro";
-import { mainNavItems, footerNavItems } from "../data/navigation";
+import { mainNavItems, footerNavItems } from "../data/navigation.js";
 
 interface Props {
   type: "main" | "footer";
   class?: string;
+  menuClass?: string;
   itemClass?: string;
 }
 
-const { type, class: className = "", itemClass = "" } = Astro.props;
+const {
+  type,
+  class: className = "",
+  menuClass = "",
+  itemClass = "",
+} = Astro.props;
 const items = type === "main" ? mainNavItems : footerNavItems;
 ---
 
 <nav class={className}>
-  {
-    items.map((item) => (
-      <NavItem
-        href={item.href}
-        label={item.label}
-        class={`${itemClass} ${item.modalType ? "open-modal" : ""}`}
-        modalType={item.modalType}
-      />
-    ))
-  }
+  <ul class={`menu ${menuClass ?? ""}`}>
+    {
+      items.map((item) => (
+        <NavItem
+          href={item.href}
+          label={item.label}
+          class={`${itemClass ?? ""} ${item.modalType ? "open-modal" : ""}`}
+          modalType={item.modalType}
+        />
+      ))
+    }
+  </ul>
 </nav>

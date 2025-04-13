@@ -1,14 +1,9 @@
 ---
-import TabItem from "../components/TabItem.astro";
+// components
+import TabContent from "../components/TabContent.astro";
 import Image from "../components/Image.astro";
 import Icon from "../components/Icon.astro";
-import HTML from "../components/Icon/HTML.astro";
-import CSS from "../components/Icon/CSS.astro";
-import Javascript from "../components/Icon/Javascript.astro";
-import React from "../components/Icon/React.astro";
-import Liquid from "../components/Icon/Liquid.astro";
-import AstroJS from "../components/Icon/Astro.astro";
-import Tailwind from "../components/Icon/Tailwind.astro";
+import Button from "../components/Button.astro";
 
 const {
   title,
@@ -21,19 +16,9 @@ const {
   githubLink,
   class: customClass,
 } = Astro.props;
-
-const iconMap = {
-  html: HTML,
-  css: CSS,
-  javascript: Javascript,
-  react: React,
-  liquid: Liquid,
-  tailwind: Tailwind,
-  astro: AstroJS,
-};
 ---
 
-<TabItem type={type} class={`flex-col items-center`}>
+<TabContent type={type} class={`flex-col items-center`}>
   <div class="image-wrapper">
     <Image
       source={image}
@@ -50,28 +35,35 @@ const iconMap = {
       {description}
     </p>
     {
-      icons && (
+      icons && icons.length > 0 && (
         <div class="flex justify-center gap-2 my-5">
-          {icons.map((icon) => {
-            const IconComponent = iconMap[icon];
-            return IconComponent ? (
-              <IconComponent name={icon} class="h-6 w-6 object-cover" />
-            ) : null;
-          })}
+          {icons.map((icon) => (
+            <Icon name={icon} class="h-6 w-6 object-cover" />
+          ))}
         </div>
       )
     }
     <div
       class="buttons mt-auto flex gap-6 justify-center items-center flex-col sm:flex-row"
     >
-      <a class="btn secondary" href={liveLink} target="_blank">View Project</a>
+      <Button
+        class=""
+        href={liveLink}
+        target="_blank"
+        type="secondary"
+        text="View Project"
+      />
       {
         githubLink && (
-          <a class="btn secondary" href={githubLink} target="_blank">
-            View Github Code
-          </a>
+          <Button
+            class=""
+            href={githubLink}
+            target="_blank"
+            type="secondary"
+            text="View Github Code"
+          />
         )
       }
     </div>
   </div>
-</TabItem>
+</TabContent>

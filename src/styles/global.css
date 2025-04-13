@@ -2,6 +2,7 @@
 @theme {
     --font-rubik: 'Rubik Variable', sans-serif;
     --color-green: #037456;
+    --color-darkgreen: #0E392B;
     --color-gray: #4D4D4D;
     --color-modal-bg: rgba(0, 0, 0, 0.8);
     --spacing-image300: 300px;
@@ -13,7 +14,7 @@ html {
     @apply overflow-x-hidden font-rubik; 
 }
 body {
-    @apply relative;
+    @apply relative scroll-smooth;
     &.no-scroll {
         @apply overflow-hidden h-full fixed w-full top-0 left-0;
     }
@@ -23,9 +24,9 @@ h1 {
 }
 
 h2 {
-    @apply text-xl mb-3 lg:text-3xl font-extrabold text-white bg-black py-4; 
-    &.modal-title {
-        @apply bg-white text-black;
+    @apply text-xl mb-3 lg:text-3xl font-extrabold; 
+    &.section-title {
+        @apply text-white bg-black py-4;
     }
 }
 h3,.h3 {
@@ -34,6 +35,10 @@ h3,.h3 {
 
 p {
     @apply text-base font-normal;
+}
+
+ul:not(.menu) {
+    @apply list-disc pl-5;
 }
 
 .subhead {
@@ -49,46 +54,71 @@ p {
     @apply w-fit font-semibold inline-block;
     &.primary {
         @apply bg-green text-white py-2 px-2 rounded-lg;
+
+        &:hover {
+            @apply bg-darkgreen  transition-all duration-300 ease-in-out;
+        }
     }
     &.secondary {
-        @apply text-green py-2 px-2 border-b-2;
+        @apply text-green py-2 px-2 relative;
+        &:after {
+            @apply absolute left-0 right-0 bottom-0 w-full h-0.5 bg-green;
+            content: '';
+            transition: transform 0.3s ease-in-out;
+        }
         &:hover {
-            @apply border-white;
+            &:after {
+                @apply bottom-1;
+            }
         }
     }
 }
 
-.hamburger {
-    .line{
-        @apply block bg-green-600 w-3.5 h-0.5 m-0.5;
-    }
-}
 .nav-item {
-    @apply pb-1 relative;
-    &.active {
-        @apply text-green-600;
-    }
-    &::after {
-        @apply  left-0 right-0 bottom-0 w-full h-0.5 bg-white;
-        content: '';
-        transition: transform 0.3s ease-in-out;
-    }
-    &:hover {
-        &::after {
-            @apply absolute;
+    @apply text-lg;
+    .nav-item--link {
+        @apply pb-1 relative;
+        &.active {
+            @apply text-green;
         }
+        &::after {
+            @apply  left-0 right-0 bottom-0 w-full h-0.5 bg-white transition-all duration-300 ease-in-out;
+            content: '';
+        }
+        &:hover {
+            &::after {
+                @apply absolute;
+            }
+        }
+    }
+    
+}
+
+.icon {
+    @apply transition-all duration-300 ease-in-out;
+    &:hover {
+        path {
+            @apply fill-green;
+        } 
+
+        &.down-arrow,
+        &.up-arrow {
+           path {
+            @apply stroke-green fill-none;
+           }
+        }
+    }
+    &.fill-current {
+        &.down-arrow,
+        &.up-arrow {
+            @apply stroke-current fill-none;
+          } 
     }
 }
 
 .social {
     & svg {
-        @apply w-4 h-4 lg:w-5 lg:h-5;
-
-        &:hover {
-            path {
-                @apply fill-green;
-            }
-        }
+        @apply w-5 lg:h-5;
     }
 }
 
@@ -109,6 +139,7 @@ p {
 }
 
 .modal {
+    
     &.closed {
         @apply hidden;
     }
@@ -117,13 +148,12 @@ p {
         @apply flex;
     }
     .modal-content {
+        @apply overflow-y-scroll;
         svg {
             @apply absolute top-0 right-0;
         }
     }
 }
-
-
 
 .tab__button {
         @apply text-center font-bold text-lg py-2 px-4 rounded-lg;

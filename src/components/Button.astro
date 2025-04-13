@@ -1,0 +1,27 @@
+---
+export interface Props {
+  class: string;
+  href?: string;
+  text?: string;
+  type?: string;
+  target?: string;
+  modalTrigger?: string;
+}
+// props
+const {
+  href,
+  text,
+  target,
+  type,
+  modalTrigger,
+  class: customClass = "",
+} = Astro.props;
+---
+
+<a
+  class={`btn ${customClass} ${type == "primary" ? "primary" : "secondary"} ${modalTrigger ? "open-modal" : ""}`}
+  href={href}
+  type={type}
+  {...modalTrigger ? { "data-modal-trigger": modalTrigger } : {}}
+  {...target ? { target: target } : {}}>{text}</a
+>

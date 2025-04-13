@@ -1,6 +1,6 @@
 let headerOffset = document.querySelector('nav').offsetHeight * 1/2;
 const sections = document.querySelectorAll('section[id]');
-const menuLinks = document.querySelectorAll('#main-menu  .nav-item');
+const menuLinks = document.querySelectorAll('#main-menu  .nav-item--link');
 
 
 document.addEventListener('DOMContentLoaded', () => {

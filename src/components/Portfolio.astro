@@ -1,28 +1,23 @@
 ---
+//components
 import TabMenu from "./TabMenu.astro";
-import TabItem from "./TabItem.astro";
-import Image from "./Image.astro";
+import TabContent from "./TabContent.astro";
+//content
 import PortfolioItem from "./PortfolioItem.astro";
 import { getCollection } from "astro:content";
 const projects = await getCollection("projects");
 
-console.log(projects);
-const tabItems = [
-  { type: "development", label: "Web Development" },
-  { type: "marketing", label: "Marketing" },
-];
+//data
 ---
 
-<section id="portfolio" class="mt-6 min-h-screen">
+<section id="portfolio" class="mt-6 min-h-auto">
   <div class="wrapper">
-    <h2 class="text-center">Portfolio</h2>
+    <h2 class="text-center section-title">Portfolio</h2>
     <div class="container my-20">
-      <div class="portfolio__tabs tabs__container gap-5 flex justify-center">
-        {
-          tabItems.map((item, index) => (
-            <TabMenu type={item.type} label={item.label} active={index === 0} />
-          ))
-        }
+      <div
+        class="portfolio__tabs tabs__container gap-5 flex justify-center items-center flex-col lg:flex-row lg:items-start"
+      >
+        <TabMenu />
       </div>
       <div
         class="projects tabitem__container grid justify-center gap-y-10 gap-x-6 grid-cols-[repeat(auto-fit,minmax(300px,max-content))] mt-10"
@@ -41,9 +36,9 @@ const tabItems = [
             />
           ))
         }
-        <TabItem type="fallback" class={"fallback"}>
+        <TabContent type="fallback" class={"fallback"}>
           <h3 class="text-center">Coming Soon</h3>
-        </TabItem>
+        </TabContent>
       </div>
     </div>
   </div>

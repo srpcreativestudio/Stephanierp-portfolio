@@ -19,14 +19,19 @@ import Social from "../components/Social.astro";
     </div>
     <div class="desktop__nav hidden lg:flex justify-between items-center">
       <Social class="gap-3 my-2 content-center" />
-      <Navigation class="px-4 flex flex-row justify-end gap-4" type="main" />
+      <Navigation
+        class=""
+        type="main"
+        menuClass="px-4 flex flex-row justify-end gap-4"
+      />
     </div>
     <div
       class="mobile__nav container hidden flex flex-col justify-center items-center"
     >
       <Navigation
-        class="flex flex-col justify-center items-center pb-4"
+        class="text-xl"
         type="main"
+        menuClass="flex flex-col justify-center items-center pb-4"
       />
       <Social class="gap-4 py-4 border-t-1 items-center" />
     </div>
