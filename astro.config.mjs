@@ -1,11 +1,11 @@
 import { defineConfig } from 'astro/config';
 import lottie from "astro-integration-lottie";
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   integrations: [
     lottie(),
-    tailwind()
+    tailwindcss()
   ],
   vite: {
     resolve: {
