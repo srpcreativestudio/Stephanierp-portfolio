@@ -3,7 +3,7 @@ interface Props {
   name: string;
   class?: string;
 }
-import { iconMap } from "../data/icons.js";
+import { iconMap } from "@data/icons";
 
 const { name, class: customClass = "" } = Astro.props;
 const IconComponent = iconMap[name];

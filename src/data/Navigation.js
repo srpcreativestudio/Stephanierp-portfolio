@@ -2,7 +2,7 @@ const mainNavItems = [
   { href: "#home", label: "Home" },
   { href: "#portfolio", label: "Portfolio" },
   { href: "#about", label: "About" },
-  { href: "", label: "Contact", modalType: "contact" }
+  { href: "#", label: "Contact", modalType: "contact" }
 ];
 const footerNavItems = [
   { href: "#portfolio", label: "Portfolio" },
