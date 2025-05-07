@@ -68,7 +68,7 @@ ul:not(.menu) {
         }
         &:hover {
             &:after {
-                @apply bottom-1;
+                @apply bottom-1 transition-all duration-200 ease-in-out;
             }
         }
     }

@@ -12,6 +12,7 @@ const projects = defineCollection({
         altText: z.string(),
         type: z.string(),
         icons: z.array(z.string()).optional(),
+        marketing: z.array(z.string()).optional(),
         liveLink: z.string(),
         githubLink: z.string().optional(),
     }),

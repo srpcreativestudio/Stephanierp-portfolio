@@ -25,6 +25,12 @@
             "type": "string"
           }
         },
+        "marketing": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "liveLink": {
           "type": "string"
         },

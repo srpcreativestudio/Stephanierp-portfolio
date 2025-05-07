@@ -1,7 +1,7 @@
 ---
 ---
 
-**Effective Date: 04/12/2025**
+**Effective Date: 05/10/2025**
 
 ## 1. Information We Collect
 
@@ -50,7 +50,7 @@ You have the right to:
 - Request correction of any inaccuracies
 - Request deletion of your personal information
 
-To exercise these rights, please contact us at [contact@yourdomain.com].
+To exercise these rights, please contact us at <u>hello@srpcreative.com</u>.
 
 ## 8. Changes to This Privacy Policy
 
@@ -60,7 +60,5 @@ We may update this privacy policy periodically. Any changes will be posted on th
 
 If you have any questions or concerns about this privacy policy, please contact us at:
 
-[Your Company Name]  
-[Your Address]  
-[contact@yourdomain.com]  
-[Your Phone Number]
+**_SRP Creative_**
+<u>hello@srpcreative.com</u>

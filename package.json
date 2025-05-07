@@ -1,5 +1,6 @@
 {
-  "name": "terrestrial-transit",
+  "name": "Stephanie's Portfolio",
+  "description": "A portfolio website for Stephanie, showcasing her work and skills.",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
