@@ -1,12 +1,22 @@
 ---
 import NavItem from "./NavItem.astro";
-import { mainNavItems, footerNavItems } from "../data/navigation.js";
+import { mainNavItems, footerNavItems } from "@data/navigation";
 
 interface Props {
   type: "main" | "footer";
   class?: string;
   menuClass?: string;
   itemClass?: string;
+  mainNavItems?: Array<{
+    href: string;
+    label: string;
+    modalType?: string;
+  }>;
+  footerNavItems?: Array<{
+    href: string;
+    label: string;
+    modalType?: string;
+  }>;
 }
 
 const {

@@ -10,12 +10,9 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        '@data': '/src/data'
-      }
-    },
-    build: {
-      rollupOptions: {
-        external: ['../data/navigation.js']
+        '@': '/src',
+        '@data': '/src/data',
+        '@components': '/src/components'
       }
     }
   }
