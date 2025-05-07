@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import lottie from "astro-integration-lottie";
 
 import tailwindcss from '@tailwindcss/vite';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,7 +11,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
     resolve: {
       alias: {
-        '@data': '/src/data'
+        '@data': path.resolve(__dirname, './src/data')
       }
     }
   },
