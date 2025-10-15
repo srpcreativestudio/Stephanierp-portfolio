@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_layout_banners",
+  "info": {
+    "displayName": "Banner"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "default": "green",
+      "enum": [
+        "green",
+        "gold",
+        "black",
+        "white"
+      ]
+    }
+  },
+  "config": {}
+}

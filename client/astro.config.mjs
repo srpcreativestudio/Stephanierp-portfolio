@@ -10,7 +10,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
     resolve: {
       alias: {
-         '@data': '/src/data',
+         '@data': 'src/data',
       }
     }
   },

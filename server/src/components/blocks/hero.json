@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_blocks_heroes",
+  "info": {
+    "displayName": "Hero"
+  },
+  "options": {},
+  "attributes": {
+    "isHomeHero": {
+      "type": "boolean",
+      "default": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "imageLocation": {
+      "type": "enumeration",
+      "default": "Center",
+      "enum": [
+        "Center",
+        "Left",
+        "Right"
+      ]
+    },
+    "eyebrow": {
+      "type": "string"
+    },
+    "text": {
+      "type": "richtext"
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.buttons",
+      "repeatable": false
+    },
+    "logoBanner": {
+      "type": "component",
+      "component": "layout.logo-banner",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

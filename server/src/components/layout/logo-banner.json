@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_layout_logo_banners",
+  "info": {
+    "displayName": "Logo Banner"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "icons": {
+      "type": "component",
+      "component": "shared.icon-grid",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

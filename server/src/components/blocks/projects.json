@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_blocks_projects",
+  "info": {
+    "displayName": "Projects"
+  },
+  "options": {},
+  "attributes": {
+    "sectionheading": {
+      "type": "component",
+      "component": "shared.section-heading",
+      "repeatable": false
+    },
+    "projects": {
+      "type": "component",
+      "component": "shared.image-grid",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

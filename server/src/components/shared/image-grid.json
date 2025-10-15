@@ -1,0 +1,56 @@
+{
+  "collectionName": "components_shared_image_grids",
+  "info": {
+    "displayName": "Image Grid"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imageLocation": {
+      "type": "enumeration",
+      "default": "center",
+      "enum": [
+        "center",
+        "left",
+        "right"
+      ]
+    },
+    "imageBeforeTitle": {
+      "type": "boolean",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "imageLocation"
+            },
+            "center"
+          ]
+        }
+      },
+      "default": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "icons": {
+      "type": "component",
+      "component": "shared.icon-grid",
+      "repeatable": true
+    },
+    "buttons": {
+      "type": "component",
+      "component": "shared.buttons",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_blocks_abouts",
+  "info": {
+    "displayName": "About"
+  },
+  "options": {},
+  "attributes": {
+    "sectionheading": {
+      "type": "component",
+      "component": "shared.section-heading",
+      "repeatable": false
+    },
+    "about": {
+      "type": "component",
+      "component": "shared.image-grid",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}
