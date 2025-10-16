@@ -5,12 +5,12 @@
   },
   "options": {},
   "attributes": {
-    "sectionheading": {
+    "sectionHeading": {
       "type": "component",
       "component": "shared.section-heading",
       "repeatable": false
     },
-    "projects": {
+    "projectSection": {
       "type": "component",
       "component": "shared.image-grid",
       "repeatable": true

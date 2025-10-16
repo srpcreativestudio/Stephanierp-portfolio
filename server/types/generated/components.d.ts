@@ -6,8 +6,8 @@ export interface BlocksAbout extends Struct.ComponentSchema {
     displayName: 'About';
   };
   attributes: {
-    about: Schema.Attribute.Component<'shared.image-grid', false>;
-    sectionheading: Schema.Attribute.Component<'shared.section-heading', false>;
+    aboutSection: Schema.Attribute.Component<'shared.image-grid', false>;
+    sectionHeading: Schema.Attribute.Component<'shared.section-heading', false>;
   };
 }
 
@@ -34,8 +34,8 @@ export interface BlocksProjects extends Struct.ComponentSchema {
     displayName: 'Projects';
   };
   attributes: {
-    projects: Schema.Attribute.Component<'shared.image-grid', true>;
-    sectionheading: Schema.Attribute.Component<'shared.section-heading', false>;
+    projectSection: Schema.Attribute.Component<'shared.image-grid', true>;
+    sectionHeading: Schema.Attribute.Component<'shared.section-heading', false>;
   };
 }
 
@@ -104,6 +104,18 @@ export interface SharedButtons extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedCategory extends Struct.ComponentSchema {
+  collectionName: 'components_shared_categories';
+  info: {
+    displayName: 'Category';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<['project', 'blog', 'case study']> &
+      Schema.Attribute.DefaultTo<'project'>;
+  };
+}
+
 export interface SharedIconGrid extends Struct.ComponentSchema {
   collectionName: 'components_shared_icon_grids';
   info: {
@@ -122,6 +134,7 @@ export interface SharedImageGrid extends Struct.ComponentSchema {
   };
   attributes: {
     buttons: Schema.Attribute.Component<'shared.buttons', true>;
+    category: Schema.Attribute.Component<'shared.category', true>;
     description: Schema.Attribute.RichText;
     icons: Schema.Attribute.Component<'shared.icon-grid', true>;
     image: Schema.Attribute.Media<'images'>;
@@ -130,6 +143,10 @@ export interface SharedImageGrid extends Struct.ComponentSchema {
     imageLocation: Schema.Attribute.Enumeration<['center', 'left', 'right']> &
       Schema.Attribute.DefaultTo<'center'>;
     title: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<
+      ['development', 'marketing', 'automation']
+    > &
+      Schema.Attribute.DefaultTo<'development'>;
   };
 }
 
@@ -169,6 +186,7 @@ declare module '@strapi/strapi' {
       'layout.header': LayoutHeader;
       'layout.logo-banner': LayoutLogoBanner;
       'shared.buttons': SharedButtons;
+      'shared.category': SharedCategory;
       'shared.icon-grid': SharedIconGrid;
       'shared.image-grid': SharedImageGrid;
       'shared.logo-link': SharedLogoLink;

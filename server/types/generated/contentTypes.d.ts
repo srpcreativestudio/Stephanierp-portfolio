@@ -472,10 +472,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    hero: Schema.Attribute.DynamicZone<
+    blocks: Schema.Attribute.DynamicZone<
       [
         'blocks.hero',
         'blocks.projects',
@@ -483,6 +480,9 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
         'blocks.about',
       ]
     >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

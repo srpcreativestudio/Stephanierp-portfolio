@@ -14,7 +14,7 @@
     "title": {
       "type": "string"
     },
-    "hero": {
+    "blocks": {
       "type": "dynamiczone",
       "components": [
         "blocks.hero",

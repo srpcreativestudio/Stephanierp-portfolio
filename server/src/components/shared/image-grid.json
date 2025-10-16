@@ -41,8 +41,42 @@
     "description": {
       "type": "richtext"
     },
+    "type": {
+      "type": "enumeration",
+      "default": "development",
+      "enum": [
+        "development",
+        "marketing",
+        "automation"
+      ]
+    },
+    "category": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "type"
+            },
+            "marketing"
+          ]
+        }
+      },
+      "component": "shared.category",
+      "repeatable": true
+    },
     "icons": {
       "type": "component",
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "type"
+            },
+            "marketing"
+          ]
+        }
+      },
       "component": "shared.icon-grid",
       "repeatable": true
     },

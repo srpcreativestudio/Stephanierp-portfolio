@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_categories",
+  "info": {
+    "displayName": "Category"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "default": "project",
+      "enum": [
+        "project",
+        "blog",
+        "case study"
+      ]
+    }
+  },
+  "config": {}
+}
