@@ -8,7 +8,7 @@ export const socialMedia = [
       icon: "github",
     },
     {
-      url: "https://www.instagram.com/stephanierpatton/",
+      url: "https://www.instagram.com/stephrpatton/",
       icon: "instagram",
     },
     // {
