@@ -1,0 +1,30 @@
+---
+//components
+import TabMenu from "./TabMenu.astro";
+import TabContent from "./TabContent.astro";
+import Image from "./Image.astro";
+//content
+import PortfolioItem from "./PortfolioItem.astro";
+import { getCollection } from "astro:content";
+const services = await getCollection("services");
+---
+
+<section id="services" class="mt-6 min-h-auto">
+  <div class="wrapper container">
+    <h2 class="text-center section-title">Services</h2>
+    <p class="text-center">
+      Strategic email marketing combined with custom development for maximum ROI
+    </p>
+    <div class="service-list gap-8">
+      {
+        services.map((service) => (
+          <div class="service p-10">
+            <Image source={service.data.icon} altText={service.data.altText} />
+            <h3>{service.data.title}</h3>
+            <p>{service.data.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

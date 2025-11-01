@@ -1,5 +1,5 @@
 export const mainNavItems = [
-    { href: "#home", label: "Home" },
+    { href: "#services", label: "Services" },
     { href: "#portfolio", label: "Portfolio" },
     { href: "#about", label: "About" },
     { href: "#", label: "Contact", modalType: "contact" }

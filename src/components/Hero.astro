@@ -6,31 +6,29 @@ import Icon from "./Icon.astro";
 import Image from "./Image.astro";
 import Button from "./Button.astro";
 // data
+import { partnerLogos } from "../data/partners.js";
 const expertise = [
   {
-    label: "Shopify Development",
-    icon: "code",
+    label: "Klaviyo Partner",
   },
   {
-    label: "Email Marketing",
-    icon: "email",
+    label: "5+ Years Experience",
   },
   {
-    label: "Automation",
-    icon: "automation",
+    label: "Shopify Expert",
   },
 ];
 ---
 
 <section
   id="home"
-  class="hero container my-28 lg:mt-24 lg:container-xl lg:min-h-screen"
+  class="hero my-28 lg:my-0 flex flex-col justify-center lg:min-h-screen"
 >
-  <div class="wrapper lg:w-11/12 mx-auto">
+  <div class="wrapper container lg:container-xl lg:w-11/12 mx-auto">
     <div class="flex flex-col justify-center items-center relative z-10">
       <span class="subhead mb-1 text-center">Hello, I'm Stephanie!</span>
       <div
-        class="image-switch w-36 rounded-full border-6 border-solid border-black bg-green overflow-hidden mb-3 mx-auto lg:mb-0 lg:hidden"
+        class="image-switch w-36 rounded-full border-6 border-solid border-black bg-green overflow-hidden mb-3 mx-auto lg:hidden lg:mb-0"
       >
         <Image
           source="https://res.cloudinary.com/srp-creative/image/upload/v1747161591/stephanie-avatar_bwrt2n.png"
@@ -38,21 +36,24 @@ const expertise = [
         />
       </div>
       <h1 class="text-center">
-        Shopify Developer & Email&nbsp;Marketing&nbsp;Strategist
+        Shopify Developer & <span class="green-highlight"
+          >Email&nbsp;Marketing&nbsp;Strategist</span
+        >
       </h1>
       <p class="my-3 lg:mx-40 text-center">
-        I help DTC brands utilize the Shopify platform and Klaviyo email
-        marketing to create custom solutions that grow your revenue.
+        I help DTC brands build custom Shopify themes + Klaviyo systems that
+        turn subscribers into repeat customers and recover revenue you're
+        leaving on the table.
       </p>
       <Button
         class=""
         href="#"
         type="primary"
         modalTrigger="contact"
-        text="Let's Chat"
+        text="Book Free Discovery Call"
       />
     </div>
-    <div class="lg:-mt-20 flex justify-center items-center lg:min-h-image500">
+    <!-- <div class="lg:-mt-20 flex justify-center items-center lg:min-h-image500">
       <div class="hidden lg:w-6/12 lg:flex lg:justify-center">
         <LottieAnimation
           src="https://res.cloudinary.com/srp-creative/raw/upload/v1743528422/hero-image_pqmoot.json"
@@ -60,38 +61,43 @@ const expertise = [
           class="w-full"
         />
       </div>
-    </div>
-    <div
-      class="expertise bg-black text-white rounded-xl py-3 px-2 my-3 lg:-mt-16 relative"
-    >
-      <p
-        class="h3 w-fit mx-auto mb-2 border-0 border-white border-solid border-b-2"
-      >
-        Expertise
-      </p>
-      <div
-        class="grid justify-between items-center gap-6 grid-cols-1 mt-6 sm:grid-cols-3"
-      >
+    </div> -->
+    <div class="expertise text-black py-3 px-2 my-3 relative">
+      <div class="flex justify-between items-center mt-6">
         {
           expertise.map((item) => (
-            <div class="flex flex-col gap-2 items-center my-2 lg:gap-4">
-              <Icon name={item.icon} class="" />
-              <p class="italic">{item.label}</p>
+            <div class="flex gap-2 items-center my-2 lg:gap-4">
+              <span class="checkmark flex items-center" />
+              <p class="italic font-semibold">{item.label}</p>
             </div>
           ))
         }
       </div>
     </div>
-
-    <div class="arrow flex flex-col justify-center items-center my-10">
-      <a
-        href="#portfolio"
-        class="flex flex-col justify-center items-center hover:text-green transform transition-all duration-300"
-      >
-        <p class="text-xs">View Projects</p>
-        <Icon name="chevronDown" class="down-arrow" /></a
-      >
+  </div>
+  <div class="trusted">
+    <p class="small-header p-5">Trusted by:</p>
+    <div class="wrapper container flex justify-center items-center gap-10">
+      {
+        partnerLogos.map((logo) => (
+          <Image
+            source={logo.source}
+            altText={logo.altText}
+            class="h-10 object-cover"
+          />
+        ))
+      }
     </div>
+  </div>
+
+  <div class="arrow flex flex-col justify-center items-center my-10">
+    <a
+      href="#portfolio"
+      class="flex flex-col justify-center items-center hover:text-green transform transition-all duration-300"
+    >
+      <p class="text-xs">View Projects</p>
+      <Icon name="chevronDown" class="down-arrow" /></a
+    >
   </div>
 </section>
 

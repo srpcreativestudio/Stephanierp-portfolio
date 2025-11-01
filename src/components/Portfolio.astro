@@ -17,7 +17,7 @@ const projects = await getCollection("projects");
       <div
         class="portfolio__tabs tabs__container gap-5 flex justify-center items-center flex-col lg:flex-row lg:items-start"
       >
-        <TabMenu />
+        <!-- <TabMenu /> -->
       </div>
       <div
         class="projects tabitem__container grid justify-center gap-y-10 gap-x-6 grid-cols-[repeat(auto-fit,minmax(300px,max-content))] mt-10"
@@ -37,9 +37,6 @@ const projects = await getCollection("projects");
             />
           ))
         }
-        <TabContent type="fallback" class={"fallback"}>
-          <h3 class="text-center">Coming Soon</h3>
-        </TabContent>
       </div>
     </div>
   </div>

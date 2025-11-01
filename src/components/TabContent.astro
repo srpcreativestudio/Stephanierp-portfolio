@@ -2,9 +2,6 @@
 const { type, active = false, class: customClass = "" } = Astro.props;
 ---
 
-<div
-  class={`tab__item hidden ${active ? "active" : ""}${customClass}`}
-  data-target={type}
->
+<div class={`tab__item ${customClass}`} data-target={type}>
   <slot />
 </div>
